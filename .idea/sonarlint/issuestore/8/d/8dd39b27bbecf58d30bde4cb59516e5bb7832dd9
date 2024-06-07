@@ -1,2 +1,4 @@
 
-r	java:S106"+Replace this use of System.out by a logger.(½¦ÿÿÿÿÿ8 ««šÿ1J$159c4fc5-3673-433f-bd4e-81ed41b40188
+g
+java:S6905"Don't use the query "SELECT *".(àŠÂ¼øÿÿÿÿ8„´ÿ1J$f8b4487a-a466-4619-b9d3-47d036df6b3d
+l	java:S106"+Replace this use of System.out by a logger.(Ôíì8‹´ÿ1J$f8b44163-3806-403e-9a9a-894a3de1ac6c
