@@ -61,10 +61,10 @@ public class DB {
     }
 
     public static void closeResultSet(ResultSet resultSet) {
-        if (resultSet != null) {
+        if(resultSet != null) {
             try {
                 resultSet.close();
-            } catch(SQLException e) {
+            } catch (SQLException e) {
                 throw new DbException(e.getMessage());
             }
         }

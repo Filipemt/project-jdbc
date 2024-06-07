@@ -1,4 +1,8 @@
 
+Œ
+java:S2147'"DCombine this catch with the one at line 37, which has the same body.(âÃƒŠıÿÿÿÿ8²¹ä ÿ1J$6c3d041a-229e-4dd3-b5d8-3d17431420a7
+m	java:S106#"+Replace this use of System.out by a logger.(ØŸà©8¾¹ä ÿ1J$03f1b4c5-de69-427e-9210-cbf417d719f3
+r	java:S106-"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8¿¹ä ÿ1J$0597fda6-d12b-4f0d-bf58-38d927494cb6
 g
-java:S6905"Don't use the query "SELECT *".(àŠÂ¼øÿÿÿÿ8„´ÿ1J$f8b4487a-a466-4619-b9d3-47d036df6b3d
-l	java:S106"+Replace this use of System.out by a logger.(Ôíì8‹´ÿ1J$f8b44163-3806-403e-9a9a-894a3de1ac6c
+java:S69053"Don't use the query "SELECT *".(àŠÂ¼øÿÿÿÿ8¾¹ä ÿ1J$9f710efb-bb13-446c-bad2-55c95e878cdb
+l	java:S1066"+Replace this use of System.out by a logger.(Ôíì8ğÌé ÿ1J$e4df9737-0089-40a3-84e5-acb8c6b8d892
