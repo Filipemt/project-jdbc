@@ -20,6 +20,26 @@ public class Main {
             connection = DB.getConnection();
 
             preparedStatement = connection.prepareStatement(
+                    "UPDATE seller "
+                        + "SET BaseSalary = BaseSalary + ? "
+                        + "WHERE "
+                        + "(DepartmentId = ?)");
+
+            preparedStatement.setDouble(1, 200.0);
+            preparedStatement.setInt(2, 2);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            System.out.println("Done! Rows Affected: " + rowsAffected);
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+
+        try {
+            connection = DB.getConnection();
+
+            preparedStatement = connection.prepareStatement(
                     "INSERT INTO seller "
                     + "(Name, Email, BirthDate, BaseSalary, DepartmentId) "
                     + "VALUES "
@@ -49,10 +69,7 @@ public class Main {
             e.getMessage();
         } catch (ParseException e) {
             e.getMessage();
-        } finally {
-            DB.closeStatement(preparedStatement);
 
-        }
 
         System.out.println();
 
@@ -66,14 +83,16 @@ public class Main {
                 System.out.println("Id: " + resultSet.getInt("Id") + ", " + resultSet.getString("Name"));
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException error) {
+            error.printStackTrace();
         }
+
         finally {
             DB.closeResultSet(resultSet);
             DB.closeStatement(statement);
             DB.closeConnection();
         }
+    }
     }
 }
 
