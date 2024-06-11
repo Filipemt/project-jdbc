@@ -1,6 +1,7 @@
 package application;
 
 import db.DB;
+import db.DbIntegrityException;
 
 import java.sql.*;
 import java.text.ParseException;
@@ -20,7 +21,8 @@ public class Main {
 
             connection = DB.getConnection();
 
-            // Atualizando dados no banco de dados
+            /* Atualizando dados no banco de dados
+
             preparedStatement = connection.prepareStatement(
                     "UPDATE seller "
                         + "SET BaseSalary = BaseSalary + ? "
@@ -33,6 +35,20 @@ public class Main {
             int rowsAffected = preparedStatement.executeUpdate();
 
             System.out.println("Done! Rows Affected: " + rowsAffected);
+             */
+
+            // Deletando dados no banco de dados
+
+            preparedStatement = connection.prepareStatement(
+                    "DELETE FROM department "
+                        + "WHERE "
+                        + "Id = ?");
+
+            preparedStatement.setInt(1, 2);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            System.out.println("Deleted! Rows Affected: " + rowsAffected);
 
 
             /* Inserindo dados no banco de dados
@@ -67,6 +83,7 @@ public class Main {
              */
 
             // Recuperando dados do banco de dados
+
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM department");
 
@@ -76,7 +93,7 @@ public class Main {
 
         }
         catch (SQLException e) {
-            e.getMessage();
+            throw new DbIntegrityException(e.getMessage());
         }
         finally {
             DB.closeResultSet(resultSet);
