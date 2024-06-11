@@ -17,8 +17,10 @@ public class Main {
         PreparedStatement preparedStatement = null;
 
         try {
+
             connection = DB.getConnection();
 
+            // Atualizando dados no banco de dados
             preparedStatement = connection.prepareStatement(
                     "UPDATE seller "
                         + "SET BaseSalary = BaseSalary + ? "
@@ -32,18 +34,14 @@ public class Main {
 
             System.out.println("Done! Rows Affected: " + rowsAffected);
 
-        } catch (SQLException e) {
-            e.getMessage();
-        }
 
-        try {
-            connection = DB.getConnection();
+            /* Inserindo dados no banco de dados
 
             preparedStatement = connection.prepareStatement(
                     "INSERT INTO seller "
-                    + "(Name, Email, BirthDate, BaseSalary, DepartmentId) "
-                    + "VALUES "
-                    + "(?, ?, ?, ?, ?)",
+                            + "(Name, Email, BirthDate, BaseSalary, DepartmentId) "
+                            + "VALUES "
+                            + "(?, ?, ?, ?, ?)",
                     Statement.RETURN_GENERATED_KEYS);
 
             preparedStatement.setString(1, "Filipe Mota");
@@ -52,7 +50,8 @@ public class Main {
             preparedStatement.setDouble(4, 3500.0);
             preparedStatement.setInt(5, 4);
 
-            int rowsAffected = preparedStatement.executeUpdate();
+            rowsAffected = preparedStatement.executeUpdate();
+
             if(rowsAffected > 0) {
                 resultSet = preparedStatement.getGeneratedKeys();
 
@@ -65,17 +64,9 @@ public class Main {
                 System.out.println("No rows affected!");
             }
 
-        }  catch (SQLException e) {
-            e.getMessage();
-        } catch (ParseException e) {
-            e.getMessage();
+             */
 
-
-        System.out.println();
-
-        try {
-            connection = DB.getConnection();
-
+            // Recuperando dados do banco de dados
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM department");
 
@@ -83,16 +74,15 @@ public class Main {
                 System.out.println("Id: " + resultSet.getInt("Id") + ", " + resultSet.getString("Name"));
             }
 
-        } catch (SQLException error) {
-            error.printStackTrace();
         }
-
+        catch (SQLException e) {
+            e.getMessage();
+        }
         finally {
             DB.closeResultSet(resultSet);
             DB.closeStatement(statement);
             DB.closeConnection();
         }
-    }
     }
 }
 
